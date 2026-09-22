@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aventura — V0.1</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div>
+        <span class="version">V0.1</span>
+        <span class="title">Aventura</span>
+      </div>
+      <div class="status">
+        <span id="levelLabel">NIVEL 1</span>
+        <span id="livesLabel">❤️❤️❤️</span>
+      </div>
+    </header>
+
+    <section class="game-wrap">
+      <canvas id="game" width="1152" height="648" aria-label="Videojuego de plataformas"></canvas>
+
+      <div id="startScreen" class="overlay">
+        <div class="panel">
+          <p class="eyebrow">PROTOTIPO V0.1</p>
+          <h1>Comienza la aventura</h1>
+          <p>Avanza, salta los obstáculos y llega al teléfono.</p>
+          <div class="controls">
+            <span>← → / A D</span><span>Mover</span>
+            <span>ESPACIO / W / ↑</span><span>Saltar</span>
+          </div>
+          <button id="startButton">Jugar</button>
+        </div>
+      </div>
+
+      <div id="message" class="message hidden"></div>
+    </section>
+
+    <footer>
+      <span>Proyecto personal · V0.1</span>
+      <span>Primera versión jugable</span>
+    </footer>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>

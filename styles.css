@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --bg: #090a12;
+  --panel: rgba(14, 16, 29, .92);
+  --text: #f5f7ff;
+  --muted: #aab0c5;
+  --accent: #8d7cff;
+  --accent2: #5ce1e6;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 50% 0%, #1b1d38 0%, var(--bg) 55%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding: 18px;
+}
+
+.game-shell {
+  width: min(1180px, 100%);
+}
+
+.topbar {
+  min-height: 58px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 0 18px;
+  background: rgba(12, 13, 24, .94);
+  border: 1px solid #282b42;
+  border-bottom: 0;
+  border-radius: 16px 16px 0 0;
+}
+
+.title {
+  margin-left: 10px;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+.version {
+  display: inline-block;
+  padding: 7px 9px;
+  border-radius: 8px;
+  background: #25283e;
+  color: #bfc4ff;
+  font: 10px/1 "Press Start 2P", monospace;
+}
+
+.status {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-weight: 800;
+}
+
+.game-wrap {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #282b42;
+  background: #070812;
+  box-shadow: 0 25px 70px rgba(0,0,0,.38);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(4, 5, 12, .55);
+  backdrop-filter: blur(3px);
+  transition: opacity .25s ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.panel {
+  width: min(520px, calc(100% - 32px));
+  padding: 30px;
+  border: 1px solid #45496e;
+  border-radius: 18px;
+  background: var(--panel);
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--accent2);
+  font: 10px/1.4 "Press Start 2P", monospace;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(25px, 4vw, 40px);
+}
+
+.panel p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px 14px;
+  margin: 22px 0;
+  padding: 14px;
+  border-radius: 12px;
+  background: #0a0c17;
+  color: #d9dcf0;
+  text-align: left;
+}
+
+.controls span:nth-child(odd) {
+  font-weight: 800;
+  color: #fff;
+}
+
+button {
+  border: 0;
+  border-radius: 11px;
+  padding: 14px 24px;
+  background: var(--accent);
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .15s ease, filter .15s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.message {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: min(500px, calc(100% - 32px));
+  padding: 28px;
+  border: 1px solid #5d6390;
+  border-radius: 18px;
+  background: rgba(8, 10, 20, .95);
+  text-align: center;
+  box-shadow: 0 25px 80px rgba(0,0,0,.55);
+}
+
+.message h2 {
+  margin: 0 0 12px;
+  font-size: 30px;
+}
+
+.message p {
+  margin: 7px 0;
+  color: #b8bdd4;
+}
+
+.message button {
+  margin-top: 16px;
+}
+
+.hidden { display: none; }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 4px;
+  color: #70758e;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  body { padding: 8px; }
+  .topbar { padding: 0 11px; }
+  .status { gap: 8px; font-size: 13px; }
+  .controls { grid-template-columns: 1fr; }
+  footer { font-size: 10px; }
+}
